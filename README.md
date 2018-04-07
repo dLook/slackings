@@ -1,14 +1,11 @@
 Custom Slack plugins for
 ========================
 
-    - status monitoring
+STATUS MONITORING
+    
+    - App that collects slack statuses and displays them in simple grid. Focuses on four core statuses: Meeting, Vacation, Sick and Home office.
 
-    - vacation logging
+VACATION LOGGING
 
-    - equipment borrowing
+    - App that logs vacations to external app and automatically sets slack vacation status.
 
-
-Possible
-========
-
-    - Matkov sofer

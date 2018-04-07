@@ -1,2 +1,5 @@
 Django==1.11.9
 djangorestframework==3.7.7
+python-dateutil==2.7.2
+requests==2.18.4
+slackclient==1.2.0
