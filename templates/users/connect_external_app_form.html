@@ -1,0 +1,32 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}External app connect form{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <form class="col s12" method="post" action="">
+            {% csrf_token %}
+            <div class="row center-align">
+                <h3>Connect your account with JIRA</h3>
+            </div>
+            <div class="row col s6 offset-l3">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    {{ form.username }}
+                    <label for="{{ form.username.id_for_label }}">E-mail</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lock</i>
+                    {{ form.password }}
+                    <label for="{{ form.password.id_for_label }}">Token</label>
+                </div>
+                <div class="input-field col s12 center-align">
+                    <button class="btn waves-effect waves-light center" type="submit" name="action">Connect
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

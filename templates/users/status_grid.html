@@ -1,0 +1,71 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block styles %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/emojione.min.css' %}">
+{% endblock %}
+
+{% block title %}User status grid{% endblock %}
+
+{% block content %}
+    <div class="section custom-padding">
+        <div class="row">
+            {% for code, status in mapped_statuses.items %}
+
+                <div class="col s12 {% if mapped_statuses|length <= 2 %}m6{% elif mapped_statuses|length == 3 %}m4{% else %}m3{% endif %}">
+                    <h4 class="valign-wrapper col-header">
+                        <div class="emoji-code">{{ status.qs.0.status_emoji }}</div>
+                        <span class="emoji-title">{{ code }}</span>
+                    </h4>
+
+                    {% for item in status.qs %}
+
+                        <div class="col s12 m12 card-col">
+                            <div class="card card-custom {% if item.is_online %}user-active{% else %}user-away{% endif %} grey lighten-5 z-depth-1 js_getUserInfo" data-slack-id="{{ item.slack_id }}">
+                                <div class="row card-row valign-wrapper">
+                                    <div class="col m4 avatar-box valign-wrapper">
+                                        <img src="{{ item.avatar }}" alt="{{ item.name }}" class="circle responsive-img avatar-img">
+                                    </div>
+                                    <div class="col m8">
+                                        <h6 class="black-text username">{{ item.name }}</h6>
+                                        <span>{{ item.status_text }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="row all-statuses">
+            {% for object in objects %}
+                <div class="col m3">
+                    <div class="card-panel custom grey lighten-5 z-depth-1">
+                        <div class="row valign-wrapper">
+                            <div class="col m4">
+                                <img src="{{ object.avatar }}" alt="{{ object.name }}" class="circle responsive-img"> <!-- notice the "circle" class -->
+                            </div>
+                            <div class="col m8">
+                                <h6>{{ object.name }}</h6>
+                                <span class="black-text">{{ object.status_text }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'js/emojione.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+{% endblock %}

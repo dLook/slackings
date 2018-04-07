@@ -1,0 +1,40 @@
+.section.custom-padding {
+    padding-top: 80px;
+}
+
+.col-header .emojione {
+    height: 2ex;
+}
+.col-header {
+    margin-bottom: 1.5rem;
+    font-weight: 200!important;
+}
+
+.card-custom {
+    padding: 0 12px;
+}
+.card-row {
+    margin-bottom: 0px;
+}
+
+.avatar-box {
+    padding: 4px !important;
+}
+.avatar-img {
+    padding: 16px;
+}
+
+.username {
+    font-size: 18px;
+    font-weight: 500;
+}
+.user-active {
+    border-left: 10px solid limegreen;
+}
+.user-away {
+    border-left: 10px solid lightgray;
+}
+
+.emoji-title {
+    margin-left: 10px!important;
+}
